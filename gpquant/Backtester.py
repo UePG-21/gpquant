@@ -62,7 +62,8 @@ class Backtester:
 @nb.jit(nopython=True)
 def __limit_max_position(signal: np.ndarray, limit: int = 1) -> np.ndarray:
     # Process the signal so that each position is not greater than 0
-    """auxiliary function, such that absolute value of each element in signal.cumsum() is not greater than limit"""
+    """auxiliary function, such that absolute value of each element
+    in signal.cumsum() is not greater than limit"""
     sum_flag = 0
     for i, num in enumerate(signal):
         if abs(sum_flag + num) > limit:
