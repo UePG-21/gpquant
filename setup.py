@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="gpquant",
-    version="0.1.4",
+    version="0.1.5",
     description="Genetic Programming for Quant",
     long_description=long_description,
     long_description_content_type="text/markdown",

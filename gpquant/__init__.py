@@ -8,6 +8,6 @@ Reference:
 [2] J. Koza, "Genetic Programming", 1992.
 """
 
-__version__ = "0.1.4"
+__version__ = "0.1.5"
 
 __all__ = ["Function", "Fitness", "Backtester", "SymbolicRegressor"]

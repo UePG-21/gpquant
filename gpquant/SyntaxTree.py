@@ -304,8 +304,8 @@ class SyntaxTree:
             function_candidates = [
                 function
                 for function in self.function_set
-                if function.arity - function.fixed_params
-                == mutation_node.data.arity - mutation_node.data.fixed_params
+                if function.arity - len(function.fixed_params)
+                == mutation_node.data.arity - len(mutation_node.data.fixed_params)
                 and function.is_ts == mutation_node.data.is_ts
             ]
             if not function_candidates:
