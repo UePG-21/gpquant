@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+setup.py
+gpquant/Backtester.py
+gpquant/Fitness.py
+gpquant/Function.py
+gpquant/SymbolicRegressor.py
+gpquant/SyntaxTree.py
+gpquant/__init__.py
+gpquant.egg-info/PKG-INFO
+gpquant.egg-info/SOURCES.txt
+gpquant.egg-info/dependency_links.txt
+gpquant.egg-info/top_level.txt
