@@ -15,18 +15,13 @@ def _ann_return(useless_var, asset: pd.Series) -> float:
     return (asset.values[-1] / asset.values[0]) ** (250 / len(asset)) - 1
 
 
-def _sharpe_ratio(close: pd.Series, asset: pd.Series, r_f: float = 0.02) -> float:
+def _sharpe_ratio(close: pd.Series, asset: pd.Series, r_f: float | None = 0.) -> float:
     # factors with no trading are considered the worst factors -> sharpe = np.nan
     close_copy = close.copy()
     close_copy.index = asset.index
-    # benchmark_return = max(_ann_return(None, close_copy), r_f)
-    benchmark_return = r_f
+    benchmark_return = _ann_return(None, close_copy) if r_f is None else r_f
     volatility = np.std(asset / asset.shift() - 1) * np.sqrt(250)
     excess_return = _ann_return(None, asset) - benchmark_return
-    if excess_return / volatility > 4:
-        from matplotlib import pyplot as plt
-        plt.plot(asset)
-        plt.show()
     if excess_return > 0:
         return excess_return / volatility if volatility else np.nan
     else:
