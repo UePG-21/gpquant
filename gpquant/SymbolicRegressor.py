@@ -142,7 +142,7 @@ class SymbolicRegressor:
             if self.metric.sign * (self.best_fitness - self.stopping_criteria) > 0:
                 break
             self.__evolve()
-    
+
     def predict(self, X: pd.DataFrame) -> Any:
         return self.best_estimator.execute(X)
 

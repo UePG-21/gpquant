@@ -1,6 +1,6 @@
 import random
-from typing import Any
 from copy import deepcopy
+from typing import Any
 
 import numpy as np
 import pandas as pd

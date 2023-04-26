@@ -15,7 +15,7 @@ def _ann_return(useless_var, asset: pd.Series) -> float:
     return (asset.values[-1] / asset.values[0]) ** (250 / len(asset)) - 1
 
 
-def _sharpe_ratio(close: pd.Series, asset: pd.Series, r_f: float | None = 0.) -> float:
+def _sharpe_ratio(close: pd.Series, asset: pd.Series, r_f: float | None = 0.0) -> float:
     # factors with no trading are considered the worst factors -> sharpe = np.nan
     close_copy = close.copy()
     close_copy.index = asset.index

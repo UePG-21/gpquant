@@ -1,7 +1,6 @@
 import pandas as pd
 from gpquant.SymbolicRegressor import SymbolicRegressor
 
-
 if __name__ == "__main__":
     file_path = "data.csv"
     df = pd.read_csv(file_path, parse_dates=["dt"])
@@ -9,7 +8,7 @@ if __name__ == "__main__":
     df["A"] = df["C"] * (1 + slippage)
     df["B"] = df["C"] * (1 - slippage)
     print(df)
-    
+
     sr = SymbolicRegressor(
         population_size=2000,
         tournament_size=20,
@@ -35,12 +34,10 @@ if __name__ == "__main__":
             "o_upper": 0.8,
             "c_upper": 0.6,
             "o_lower": 0.2,
-            "c_lower": 0.4
+            "c_lower": 0.4,
         },
-        parsimony_coefficient=0.005
+        parsimony_coefficient=0.005,
     )
 
     sr.fit(df.iloc[:400], df["C"].iloc[:400])
     print(sr.score(df.iloc[400:800], df["C"].iloc[400:800]))
-    
-
